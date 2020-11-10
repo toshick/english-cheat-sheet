@@ -42,7 +42,14 @@ a {
 }
 
 /* -------------------- 
- slide
+ furigana
  ---------------------*/
-.slide {
+.furigana {
+  color: rgb(191, 99, 2);
+}
+
+.-ja {
+  .furigana {
+    display: none;
+  }
 }

@@ -1,34 +1,46 @@
 <template>
   <div class="slide">
-    <h1 class="title">状況を聞く・伝える</h1>
+    <SlideTitle text="状況（じょうきょう）を聞（き）く・伝（つた）える" />
     <section>
-      <h1>状況を聞く</h1>
-      <Sentence text="ごきげんいかが？">
-        Hi everyone. How’s it going?
-      </Sentence>
-      <Sentence text="今日のあなたのチームの調子はどうだい？">
+      <SectionTitle text="状況（じょうきょう）を聞（き）く" />
+
+      <Sentence
+        text="今日（きょう）のあなたのチームの調子（ちょうし）はどうですか？"
+      >
         How are things going at your team today?
       </Sentence>
-      <Sentence text="週末はどうでしたか？"> How was your weekend? </Sentence>
-      <Sentence text="今日は寒くないかね？">
-        It’s cold today, isn’t it?
+      <Sentence text="***の進捗（しんちょく）はどうですか？">
+        How is *** coming along?
+      </Sentence>
+      <Sentence text="プロジェクトの進捗（しんちょく）はどうですか？">
+        How is the project going?
+      </Sentence>
+      <Sentence text="今のステータスについて聞（き）きたいです">
+        Could you tell us about the current status?
+      </Sentence>
+      <Sentence text="スケジュールどおりですか？">
+        Are we on schedule?
+      </Sentence>
+      <Sentence text="***についてなにか進捗（しんちょく）はありますか？">
+        Do you have any update on *** ?
       </Sentence>
     </section>
     <section>
-      <h1>状況を伝える</h1>
-      <Sentence text="とても忙しいです">
+      <SectionTitle text="状況（じょうきょう）を伝（つた）える" />
+
+      <Sentence text="とても忙（いそが）しいです">
         We are pretty busy at the moment.
       </Sentence>
       <Sentence text="うまくいっています"> Things are going well. </Sentence>
 
-      <Sentence text="困っています">
+      <Sentence text="困（こま）っています">
         I am having trouble. <br />
         I am having some trouble now.
       </Sentence>
-      <Sentence text="そのやり方がわかりません">
+      <Sentence text="そのやり方（かた）がわかりません">
         I don’t know how to do that.
       </Sentence>
-      <Sentence text="詳しく知りたいです">
+      <Sentence text="詳（くわ）しく知りたいです">
         I'd like to know the details.
       </Sentence>
     </section>

@@ -1,27 +1,37 @@
 <template>
   <div class="slide">
-    <h1 class="title">回答する</h1>
+    <SlideTitle text="回答（回答）する" />
     <section>
-      <h1>反応する</h1>
-      <Sentence text="いい質問ですね、難しい質問ですね、面白い質問ですね">
+      <SectionTitle text="反応（はんのう）する" />
+
+      <Sentence
+        text="いい質問（しつもん）ですね、難（むずか）しい質問（しつもん）ですね、面白（おもしろ）い質問（しつもん）ですね"
+      >
         That’s a very good question.<br />
         That’s a very difficult question.<br />
         That’s a very interesting question.
       </Sentence>
-      <Sentence text="重要なポイントをご指摘いただきました">
+      <Sentence
+        text="重要（じゅうよう）なポイントをご指摘（してき）いただきました"
+      >
         You have raised an important point there.
       </Sentence>
     </section>
     <section>
-      <h1>回答できないとき</h1>
-      <Sentence text="今回答することは難しいです">
+      <SectionTitle text="回答（かいとう）できないとき" />
+
+      <Sentence text="今（いま）回答（かいとう）することは難（むずか）しいです">
         it’s rather difficult to say at present.
       </Sentence>
-      <Sentence text="回答するための十分な情報がありません">
+      <Sentence
+        text="回答（かいとう）するための十分（じゅうぶん）な情報（じょうほう）がありません"
+      >
         I’m afraid I don’t have enough information to answer your question at
         the moment.
       </Sentence>
-      <Sentence text="すみませんが、言っていることの意味がよく理解できません。">
+      <Sentence
+        text="すみませんが、言（い）っていることの意味（いみ）がよく理解（りかい）できません。"
+      >
         I’m afraid I’m not quite sure what you mean by that.
       </Sentence>
     </section>

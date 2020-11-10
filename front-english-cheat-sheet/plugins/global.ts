@@ -10,6 +10,8 @@ import SideMenu from '@/components/SideMenu.vue';
 import WordList from '@/components/WordList.vue';
 import Word from '@/components/Word.vue';
 import Sentence from '@/components/Sentence.vue';
+import SectionTitle from '@/components/SectionTitle.vue';
+import SlideTitle from '@/components/SlideTitle.vue';
 
 Vue.component('Header', Header);
 Vue.component('Body', Body);
@@ -19,6 +21,8 @@ Vue.component('SideMenu', SideMenu);
 Vue.component('WordList', WordList);
 Vue.component('Word', Word);
 Vue.component('Sentence', Sentence);
+Vue.component('SectionTitle', SectionTitle);
+Vue.component('SlideTitle', SlideTitle);
 
 /**
  * axios settings

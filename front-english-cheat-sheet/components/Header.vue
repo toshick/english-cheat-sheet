@@ -1,8 +1,8 @@
 <template>
   <header class="wf">
     <a @click="$emit('open-side-menu')"><b-icon icon="menu" /></a>
-
     ENGLISH CHEAT SHEET
+    <a class="btn-toggle" @click="$emit('toggle-lang')">{{ lang }}</a>
   </header>
 </template>
 <!------------------------------->
@@ -12,7 +12,12 @@
 import Vue from 'vue';
 export default Vue.extend({
   name: 'Header',
-  props: {},
+  props: {
+    lang: {
+      default: '',
+      type: String,
+    },
+  },
 });
 </script>
 <!------------------------------->
@@ -38,5 +43,8 @@ header {
   .icon {
     display: inline-block;
   }
+}
+.btn-toggle {
+  margin-left: auto;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
-  <main>
+  <main :class="classLang">
     <ViewBase>
-      <Header @open-side-menu="open = true" />
+      <Header
+        @open-side-menu="open = true"
+        @toggle-lang="toggleLang"
+        :lang="lang"
+      />
       <Body>
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -50,6 +54,7 @@ type State = {
   swiper: Swiper | null;
   open: boolean;
   slideMap: { [key: string]: number };
+  lang: string;
 };
 
 export default Vue.extend({
@@ -67,7 +72,13 @@ export default Vue.extend({
         ask: 3,
         answer: 4,
       },
+      lang: 'ja',
     };
+  },
+  computed: {
+    classLang(): string {
+      return `-${this.lang}`;
+    },
   },
   mounted() {
     this.swiper = new Swiper('.swiper-container', {
@@ -84,6 +95,9 @@ export default Vue.extend({
       console.log('slide', slide);
       this.swiper?.slideTo(this.slideMap[slide]);
       this.open = false;
+    },
+    toggleLang() {
+      this.lang = this.lang === 'ja' ? 'en' : 'ja';
     },
   },
 });

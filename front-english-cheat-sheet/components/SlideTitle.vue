@@ -1,10 +1,5 @@
 <template>
-  <article class="sentence">
-    <h1 v-html="mytext" />
-    <div class="sentence-des">
-      <slot />
-    </div>
-  </article>
+  <h1 class="title" v-html="mytext" />
 </template>
 <!------------------------------->
 
@@ -12,7 +7,7 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-  name: 'Sentence',
+  name: 'SlideTitle',
   props: {
     text: {
       default: '',
@@ -34,16 +29,10 @@ export default Vue.extend({
 <!------------------------------->
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
-h1 {
-  display: inline-block;
-  background-color: #ece3c1;
-  border-radius: 3px;
-  padding: 4px 10px;
-  margin-bottom: 0.5em;
-  font-size: 12px;
-}
-.sentence {
-  font-size: 14px;
-  padding-bottom: 10px;
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 20px 0;
+  margin: 0;
 }
 </style>
