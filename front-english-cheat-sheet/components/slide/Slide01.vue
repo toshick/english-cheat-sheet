@@ -16,6 +16,9 @@
       <Sentence text="それでははじめよう">
         Shall we get started? <br />
       </Sentence>
+      <Sentence text="***さんからはじめよう">
+        Let’s start with Mr.***.
+      </Sentence>
     </section>
     <section>
       <h1>時間を気にする・進行させる</h1>
@@ -25,11 +28,17 @@
       <Sentence text="これ以上時間を使えません">
         We don’t have any more time to spend on this.
       </Sentence>
+      <Sentence text="何かコメントありますか？">
+        Do you have any comments?
+      </Sentence>
       <Sentence text="よし、次の議題 *** に移りましょう">
         All right, now can we move on to *** ?
       </Sentence>
       <Sentence text="それでは次の議題 *** に移りましょう">
-        Now, let’s go on to ***.
+        Now, let’s go on to ***.<br />
+      </Sentence>
+      <Sentence text="それでは次の議題に移りましょう">
+        Let’s move on to the next topic.
       </Sentence>
     </section>
     <section>
@@ -40,6 +49,12 @@
       </Sentence>
       <Sentence text="明確になりましたか？">
         Is that clear to everyone?
+      </Sentence>
+      <Sentence text="何か忘れていたら教えてください">
+        If I have something forgetting, please let me know.
+      </Sentence>
+      <Sentence text="どのチケットを誰にアサインするか明確にしよう">
+        We should clarify which ticket to be assigned to whom
       </Sentence>
     </section>
     <section>
@@ -71,20 +86,24 @@
       </Sentence>
       <Sentence text="以上です"> that's it </Sentence>
       <Sentence text="本日の会議は以上です。ありがとうございました。">
-        That’s all for today. Thank you.
+        That’s all for today. Thank you.<br />
+        That’s it for today. Thank you for attending
       </Sentence>
       <Sentence text="今日は皆さんに会えて嬉しかったです。">
         It was a pleasure to see you all today.
+      </Sentence>
+      <Sentence text="今日は参加してくれありがとう（プレゼンなどの時）">
+        Thank you for joining us today.
       </Sentence>
     </section>
     <!-- WordList -->
     <WordList>
       <Word text="minute">議事録</Word>
-      <Word text="minute">議事録</Word>
-      <Word text="minute">議事録</Word>
-      <Word text="minute">議事録</Word>
-      <Word text="minute">議事録</Word>
-      <Word text="minute">議事録</Word>
+      <Word text="summarize">要約する</Word>
+      <Word text="consensus">意見の一致</Word>
+      <Word text="discuss">話し合う</Word>
+      <Word text="decide">決定する</Word>
+      <Word text="spend">費やす</Word>
     </WordList>
     <!-- Footer -->
     <Footer />

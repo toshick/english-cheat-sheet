@@ -25,6 +25,12 @@
         I am having trouble. <br />
         I am having some trouble now.
       </Sentence>
+      <Sentence text="そのやり方がわかりません">
+        I don’t know how to do that.
+      </Sentence>
+      <Sentence text="詳しく知りたいです">
+        I'd like to know the details.
+      </Sentence>
     </section>
     <!-- Footer -->
     <Footer />

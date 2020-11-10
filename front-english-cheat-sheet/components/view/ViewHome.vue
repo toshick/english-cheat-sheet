@@ -61,11 +61,11 @@ export default Vue.extend({
       swiper: null,
       open: false,
       slideMap: {
-        control: 1,
-        hearing: 2,
-        opinion: 3,
-        ask: 4,
-        answer: 5,
+        control: 0,
+        hearing: 1,
+        opinion: 2,
+        ask: 3,
+        answer: 4,
       },
     };
   },

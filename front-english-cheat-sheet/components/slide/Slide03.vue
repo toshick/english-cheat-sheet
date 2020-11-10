@@ -2,7 +2,7 @@
   <div class="slide">
     <h1 class="title">意見を伝える</h1>
     <section>
-      <h1>賛成・反対</h1>
+      <h1>賛成</h1>
       <Sentence text="全くもってあなたの言う通りだと思います">
         I totally/completely agree with you.<br />
       </Sentence>
@@ -13,8 +13,21 @@
       <Sentence text="その提案には反対です">
         I’m opposed to the proposal.<br />
       </Sentence>
+    </section>
+    <section>
+      <h1>反対</h1>
       <Sentence text="その提案には賛成しかねます">
         I’m afraid I can’t support the proposal.<br />
+      </Sentence>
+      <Sentence text="それは多分違うと思います">
+        I think it is probably wrong.<br />
+        Probably not.
+      </Sentence>
+      <Sentence text="あなたは勘違いしている気がします">
+        I'm afraid you're mistaken.
+      </Sentence>
+      <Sentence text="それが起きる可能性はあまりないです">
+        That's unlikely going to happen.
       </Sentence>
     </section>
     <section>

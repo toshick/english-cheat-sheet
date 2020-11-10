@@ -25,15 +25,6 @@
         I’m afraid I’m not quite sure what you mean by that.
       </Sentence>
     </section>
-    <section>
-      <h1>お願いする</h1>
-      <Sentence text="***について教えてもらえますか？">
-        Could you tell me *** ?
-      </Sentence>
-      <Sentence text="***について説明いただけますか？">
-        Would you mind explaining *** ?
-      </Sentence>
-    </section>
     <!-- Footer -->
     <Footer />
   </div>

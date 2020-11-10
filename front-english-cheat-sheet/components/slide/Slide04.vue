@@ -42,6 +42,9 @@
       <Sentence text="一点だけ確認してもいいですか？">
         Can I check just one thing?
       </Sentence>
+      <Sentence text="***するやり方をもう少し具体的に説明してもらえますか？">
+        Could you be more specific about how to *** ?
+      </Sentence>
     </section>
     <!-- Footer -->
     <Footer />
