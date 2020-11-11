@@ -2,6 +2,19 @@
   <div class="slide">
     <SlideTitle text="意見（いけん）を伝（つた）える" />
     <section>
+      <SectionTitle text="割（わ）り込（こ）む" />
+
+      <Sentence text="ちょっといいですか？">
+        May I interrupt you for a moment?
+      </Sentence>
+      <Sentence text="割（わ）り込（こ）みすみませんが、">
+        Sorry to interrupt, but…
+      </Sentence>
+      <Sentence text="ちょっとよろしいかな">
+        If I could just interrupt you there.
+      </Sentence>
+    </section>
+    <section>
       <SectionTitle text="賛成（さんせい）" />
 
       <Sentence
@@ -34,32 +47,7 @@
         That's unlikely going to happen.
       </Sentence>
     </section>
-    <section>
-      <SectionTitle text="状況（じょうきょう）を伝（つた）える" />
 
-      <Sentence text="とても忙（いそが）しいです">
-        We are pretty busy at the moment.
-      </Sentence>
-      <Sentence text="うまくいっています"> Things are going well. </Sentence>
-
-      <Sentence text="困（こま）っています">
-        I am having trouble. <br />
-        I am having some trouble now.
-      </Sentence>
-    </section>
-    <section>
-      <SectionTitle text="割（わ）り込（こ）む" />
-
-      <Sentence text="ちょっといいですか？">
-        May I interrupt you for a moment?
-      </Sentence>
-      <Sentence text="割（わ）り込（こ）みすみませんが、">
-        Sorry to interrupt, but…
-      </Sentence>
-      <Sentence text="ちょっとよろしいかな">
-        If I could just interrupt you there.
-      </Sentence>
-    </section>
     <section>
       <SectionTitle text="最後（さいご）まで言（い）わせてください" />
 
