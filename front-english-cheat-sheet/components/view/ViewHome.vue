@@ -89,6 +89,7 @@ export default Vue.extend({
       //   },
       // },
     });
+    console.log('$config', this.$config);
   },
   methods: {
     onSelect(slide: string) {

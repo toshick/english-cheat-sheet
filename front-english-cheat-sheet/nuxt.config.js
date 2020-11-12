@@ -49,4 +49,8 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  publicRuntimeConfig: {
+    sheetJsonStr: process.env.INCOMING_HOOK_BODY || '',
+  },
 };
