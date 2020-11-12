@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
 
-
 import Header from '@/components/Header.vue';
 import Body from '@/components/Body.vue';
 import Footer from '@/components/Footer.vue';
@@ -24,10 +23,13 @@ Vue.component('Sentence', Sentence);
 Vue.component('SectionTitle', SectionTitle);
 Vue.component('SlideTitle', SlideTitle);
 
+console.log('なんで');
+
 /**
  * axios settings
  */
-axios.defaults.headers.common['X-Requested-By'] = 'english-cheat-sheet-requested-by';
+axios.defaults.headers.common['X-Requested-By'] =
+  'english-cheat-sheet-requested-by';
 Vue.prototype.$http = axios;
 
 /**
@@ -60,14 +62,12 @@ document.addEventListener(
   true,
 );
 
-
 /**
  * mixin
  */
 Vue.mixin({
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     goTop() {

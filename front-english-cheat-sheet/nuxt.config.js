@@ -11,7 +11,10 @@ export default {
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: '' }],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/swiper/swiper-bundle.min.css' },
+      {
+        rel: 'stylesheet',
+        href: 'https://unpkg.com/swiper/swiper-bundle.min.css',
+      },
       // {
       //   rel: 'stylesheet',
       //   href: 'https://fonts.googleapis.com/earlyaccess/nicomoji.css',
@@ -23,7 +26,7 @@ export default {
   css: [{ src: 'assets/css/app.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/global', '~/plugins/spreadsheet'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -53,4 +56,7 @@ export default {
   publicRuntimeConfig: {
     sheetJsonStr: process.env.INCOMING_HOOK_BODY || '',
   },
+  // privateRuntimeConfig: {
+  //   sheetJsonStr: process.env.INCOMING_HOOK_BODY || '',
+  // },
 };

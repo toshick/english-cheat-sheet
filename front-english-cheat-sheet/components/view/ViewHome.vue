@@ -2,9 +2,9 @@
   <main :class="classLang">
     <ViewBase>
       <Header
+        :lang="lang"
         @open-side-menu="open = true"
         @toggle-lang="toggleLang"
-        :lang="lang"
       />
       <Body>
         <div class="swiper-container">
@@ -57,6 +57,14 @@ type State = {
   lang: string;
 };
 
+// const tmp = {
+//   aaa: '%E3%81%82%E3%81%84%E3%81%86',
+//   bbb: '%E3%81%8B%E3%81%8D%E3%81%8F',
+//   ccc: '%E3%81%95%E3%81%97%E3%81%99',
+//   ddd: '%E3%81%9F%E3%81%A1%E3%81%A4',
+// };
+// console.log('tmp', decodeURIComponent(JSON.stringify(tmp)));
+
 export default Vue.extend({
   name: 'ViewHome',
   components: { Slide01, Slide02, Slide03, Slide04, Slide05 },
@@ -89,11 +97,10 @@ export default Vue.extend({
       //   },
       // },
     });
-    console.log('$config', this.$config);
+    console.log('sheetJsonを取得', this.$sheetJson);
   },
   methods: {
     onSelect(slide: string) {
-      console.log('slide', slide);
       this.swiper?.slideTo(this.slideMap[slide]);
       this.open = false;
     },
