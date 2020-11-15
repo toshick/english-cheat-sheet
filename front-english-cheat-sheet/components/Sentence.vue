@@ -3,7 +3,7 @@
     <h1 v-html="mytext" />
     <div class="sentence-des">
       <!-- slot -->
-      <slot />
+      <p v-html="entext" />
     </div>
   </article>
 </template>
@@ -19,6 +19,10 @@ export default Vue.extend({
       default: '',
       type: String,
     },
+    en: {
+      default: '',
+      type: String,
+    },
   },
   computed: {
     mytext(): string {
@@ -27,10 +31,8 @@ export default Vue.extend({
         '<span class="furigana">$1</span>',
       );
     },
-    mysentence(): string {
-      if (!this.$slots.default) return '';
-      const vnode = this.$slots.default[0];
-      return vnode.text || '';
+    entext(): string {
+      return this.en.replace(/[\n]/g, '<br />');
     },
   },
 });

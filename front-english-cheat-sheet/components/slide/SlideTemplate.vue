@@ -8,9 +8,8 @@
         v-for="(sen, index2) in s.children"
         :key="`${index2}-${sen.ja}`"
         :text="sen.ja"
-      >
-        <p v-html="sen.en | br" />
-      </Sentence>
+        :en="sen.en"
+      />
     </section>
 
     <!-- Footer -->

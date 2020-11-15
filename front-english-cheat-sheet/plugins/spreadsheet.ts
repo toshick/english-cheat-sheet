@@ -40,8 +40,6 @@ const pagedata: SlideData = [
 ];
 
 export default function ({ $config }: { $config: any }) {
-  console.log('json', JSON.stringify($config.sheetJsonStr));
-
   let sheetJson = null;
   if ($config.sheetJsonStr) {
     const sheetJsonStr = decodeURIComponent(
