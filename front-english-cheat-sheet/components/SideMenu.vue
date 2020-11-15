@@ -41,10 +41,20 @@ export default Vue.extend({
       default: 0,
       type: Number,
     },
+    lang: {
+      default: '',
+      type: String,
+    },
   },
   computed: {
     slidedata(): SlideData {
-      return appStore.slidedata;
+      return appStore.slidedata.map((d) => {
+        const data = { ...d };
+        if (data.title && this.lang === 'ja') {
+          data.title = data.title.replace(/(（.+?）)/g, '');
+        }
+        return data;
+      });
     },
   },
 });

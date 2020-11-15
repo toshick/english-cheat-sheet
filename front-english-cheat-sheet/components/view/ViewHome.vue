@@ -25,6 +25,7 @@
       v-if="swiper"
       :open="open"
       :index="swiper.activeIndex"
+      :lang="lang"
       @close="open = false"
       @select="onSelect"
     />
