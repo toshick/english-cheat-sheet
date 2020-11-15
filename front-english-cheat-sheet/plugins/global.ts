@@ -23,8 +23,6 @@ Vue.component('Sentence', Sentence);
 Vue.component('SectionTitle', SectionTitle);
 Vue.component('SlideTitle', SlideTitle);
 
-console.log('なんで');
-
 /**
  * axios settings
  */

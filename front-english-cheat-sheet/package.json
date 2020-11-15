@@ -7,9 +7,11 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
+    "generate:full-static": "npm run build && nuxt-ts export",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "test": "jest"
+    "test": "jest",
+    "preview": "nuxt serve"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
@@ -19,7 +21,8 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "nuxt-buefy": "^0.4.3",
-    "swiper": "^6.3.5"
+    "swiper": "^6.3.5",
+    "vuex-module-decorators": "^1.0.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",

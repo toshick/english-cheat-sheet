@@ -9,6 +9,13 @@
       <Body>
         <div class="swiper-container">
           <div class="swiper-wrapper">
+            <div
+              v-for="p in slidedata"
+              :key="`${p.title}`"
+              class="swiper-slide"
+            >
+              <SlideTemplate :json="p" />
+            </div>
             <div class="swiper-slide">
               <Slide01 />
             </div>
@@ -43,49 +50,40 @@
 <!------------------------------->
 <script lang="ts">
 import Vue from 'vue';
+import { appStore } from '@/store';
+import { SlideData, Lang } from '@/types/app';
 import Swiper from 'swiper';
 import Slide01 from '@/components/slide/Slide01.vue';
 import Slide02 from '@/components/slide/Slide02.vue';
 import Slide03 from '@/components/slide/Slide03.vue';
 import Slide04 from '@/components/slide/Slide04.vue';
 import Slide05 from '@/components/slide/Slide05.vue';
+import SlideTemplate from '@/components/slide/SlideTemplate.vue';
 
 type State = {
   swiper: Swiper | null;
   open: boolean;
-  slideMap: { [key: string]: number };
-  lang: string;
 };
-
-// const tmp = {
-//   aaa: '%E3%81%82%E3%81%84%E3%81%86',
-//   bbb: '%E3%81%8B%E3%81%8D%E3%81%8F',
-//   ccc: '%E3%81%95%E3%81%97%E3%81%99',
-//   ddd: '%E3%81%9F%E3%81%A1%E3%81%A4',
-// };
-// console.log('tmp', decodeURIComponent(JSON.stringify(tmp)));
 
 export default Vue.extend({
   name: 'ViewHome',
-  components: { Slide01, Slide02, Slide03, Slide04, Slide05 },
+  components: { Slide01, Slide02, Slide03, Slide04, Slide05, SlideTemplate },
   props: {},
   data(): State {
     return {
       swiper: null,
       open: false,
-      slideMap: {
-        control: 0,
-        hearing: 1,
-        opinion: 2,
-        ask: 3,
-        answer: 4,
-      },
-      lang: 'ja',
     };
   },
   computed: {
     classLang(): string {
       return `-${this.lang}`;
+    },
+    slidedata(): SlideData {
+      return appStore.slidedata;
+    },
+    lang(): string {
+      return appStore.lang;
     },
   },
   mounted() {
@@ -97,15 +95,15 @@ export default Vue.extend({
       //   },
       // },
     });
-    console.log('sheetJsonを取得', this.$sheetJson);
   },
   methods: {
-    onSelect(slide: string) {
-      this.swiper?.slideTo(this.slideMap[slide]);
+    onSelect(index: number) {
+      this.swiper?.slideTo(index);
       this.open = false;
     },
     toggleLang() {
-      this.lang = this.lang === 'ja' ? 'en' : 'ja';
+      const lang: Lang = this.lang === 'ja' ? 'en' : 'ja';
+      appStore.SET_LANG(lang);
     },
   },
 });
