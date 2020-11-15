@@ -1,5 +1,13 @@
 const fs = require('fs');
 
+// .filter(function(row){
+//   const cont = [];
+//   row.forEach(function(item) {
+//     if(item) cont.push(item);
+//   });
+//   return cont.length > 0;
+// })
+
 // getData
 function getData(id, sheetName) {
   const rows = [

@@ -2,7 +2,8 @@
   <article class="sentence">
     <h1 v-html="mytext" />
     <div class="sentence-des">
-      <slot />
+      <!-- slot -->
+      <p v-html="mysentence" />
     </div>
   </article>
 </template>
@@ -25,6 +26,11 @@ export default Vue.extend({
         /(（.+?）)/g,
         '<span class="furigana">$1</span>',
       );
+    },
+    mysentence(): string {
+      if (!this.$slots.default) return '';
+      const vnode = this.$slots.default[0];
+      return vnode.text || '';
     },
   },
 });

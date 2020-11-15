@@ -7,7 +7,7 @@ const pagedata: SlideData = [
     children: [
       {
         children: [
-          { ja: 'ハロー1', en: 'hello1' },
+          { ja: 'ハロー1\nハロー1', en: 'hello1\nhello11' },
           { ja: 'ハロー1', en: 'hello1' },
           { ja: 'ブロック1', en: 'block1' },
         ],
@@ -35,7 +35,7 @@ const pagedata: SlideData = [
         title: 'セクションタイトル1',
       },
     ],
-    title: 'なんかいう',
+    title: 'ページタイトル2',
   },
 ];
 

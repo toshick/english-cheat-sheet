@@ -16,21 +16,6 @@
             >
               <SlideTemplate :json="p" />
             </div>
-            <div class="swiper-slide">
-              <Slide01 />
-            </div>
-            <div class="swiper-slide">
-              <Slide02 />
-            </div>
-            <div class="swiper-slide">
-              <Slide03 />
-            </div>
-            <div class="swiper-slide">
-              <Slide04 />
-            </div>
-            <div class="swiper-slide">
-              <Slide05 />
-            </div>
           </div>
         </div>
       </Body>
