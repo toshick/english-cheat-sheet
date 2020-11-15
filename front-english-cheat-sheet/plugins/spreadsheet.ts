@@ -41,11 +41,15 @@ const pagedata: SlideData = [
 
 export default function ({ $config }: { $config: any }) {
   console.log('$configです', $config);
+  console.log('json', JSON.stringify($config.sheetJsonStr));
+
   let sheetJson = null;
   if ($config.sheetJsonStr) {
     const sheetJsonStr = decodeURIComponent(
-      JSON.stringify($config.sheetJsonStr),
+      JSON.stringify($config.sheetJsonStr).replace(/\t/g, ''),
     );
+    console.log('sheetJsonStr', sheetJsonStr);
+
     sheetJson = JSON.parse(sheetJsonStr);
   }
   if (!sheetJson) {
