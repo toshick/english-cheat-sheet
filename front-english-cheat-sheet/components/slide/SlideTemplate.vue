@@ -9,7 +9,7 @@
         :key="`${index2}-${sen.ja}`"
         :text="sen.ja"
       >
-        {{ sen.en | br }}
+        <p v-html="sen.en | br" />
       </Sentence>
     </section>
 

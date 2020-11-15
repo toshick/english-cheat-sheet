@@ -3,7 +3,7 @@
     <h1 v-html="mytext" />
     <div class="sentence-des">
       <!-- slot -->
-      <p v-html="mysentence" />
+      <slot />
     </div>
   </article>
 </template>
