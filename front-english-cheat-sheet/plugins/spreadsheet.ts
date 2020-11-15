@@ -45,13 +45,12 @@ export default function ({ $config }: { $config: any }) {
     const sheetJsonStr = decodeURIComponent(
       JSON.stringify($config.sheetJsonStr),
     ).replace(/\n/g, '\\n');
-    console.log('sheetJsonStr', sheetJsonStr);
-
     sheetJson = JSON.parse(sheetJsonStr);
   }
   if (!sheetJson) {
     sheetJson = pagedata;
   }
+  console.log('sheetJson', JSON.stringify(sheetJson));
 
   // Vue.prototype.$sheetJson = sheetJson;
   appStore.SET_PAGEJSON(sheetJson);

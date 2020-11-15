@@ -103,6 +103,7 @@ export default Vue.extend({
 .swiper-container {
   height: 100%;
   width: 100vw;
+  background-color: $app-color-dark;
 }
 .swiper-slide {
   height: 100vh;

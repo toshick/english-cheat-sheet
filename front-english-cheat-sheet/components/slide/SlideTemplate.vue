@@ -39,6 +39,10 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
 
+.slide {
+  background-color: $app-color;
+}
+
 section {
   padding: 20px 20px 0;
 }
