@@ -4,11 +4,16 @@ import { appStore } from '@/store';
 
 export default function ({ $config }: { $config: any }) {
   let sheetJson: any = null;
+
   if ($config.sheetJsonStr) {
     const sheetJsonStr = decodeURIComponent(
       JSON.stringify($config.sheetJsonStr),
     ).replace(/\n/g, '\\n');
     sheetJson = JSON.parse(sheetJsonStr);
+
+    console.log('$config.sheetJsonStr', sheetJsonStr);
+  } else {
+    console.log('$config.sheetJsonStrなし');
   }
   if (!sheetJson) {
     sheetJson = pagedata;
