@@ -1,16 +1,21 @@
 <template>
   <div class="slide">
     <SlideTitle :text="json.title" />
-    <section v-for="(s, index) in json.children" :key="`${index}-${s.title}`">
-      <SectionTitle :text="s.title" />
-
-      <Sentence
-        v-for="(sen, index2) in s.children"
-        :key="`${index2}-${sen.ja}`"
-        :text="sen.ja"
-        :en="sen.en"
-      />
-    </section>
+    <div v-for="(s, index) in json.children" :key="`${index}-${s.title}`">
+      <section
+        v-for="(sec, index2) in s.children"
+        :key="`${index2}-${sec.title}`"
+        class=""
+      >
+        <SectionTitle :text="sec.title" />
+        <Sentence
+          v-for="(sen, index3) in sec.sentences"
+          :key="`${index3}-${sen.ja}`"
+          :text="sen.ja"
+          :en="sen.en"
+        />
+      </section>
+    </div>
 
     <!-- Footer -->
     <Footer />

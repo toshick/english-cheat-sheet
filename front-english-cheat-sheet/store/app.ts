@@ -1,17 +1,17 @@
 import Vue from 'vue';
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
-import { SlideData, Lang } from '@/types/app';
+import { SlideDir, Lang } from '@/types/app';
 
 @Module({ name: 'app', stateFactory: true, namespaced: true })
 export default class MyClass extends VuexModule {
-  slidedata: SlideData = [];
+  slidedata: SlideDir[] = [];
   lang: Lang = 'ja';
 
   // ----------------------
   // Mutation
   // ----------------------
   @Mutation
-  SET_PAGEJSON(data: SlideData) {
+  SET_PAGEJSON(data: SlideDir[]) {
     this.slidedata = data;
   }
 

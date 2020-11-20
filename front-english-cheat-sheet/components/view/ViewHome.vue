@@ -10,8 +10,8 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div
-              v-for="p in slidedata"
-              :key="`${p.title}`"
+              v-for="(p, index) in slidedata"
+              :key="`${index}-${p.title}`"
               class="swiper-slide"
             >
               <SlideTemplate :json="p" />
@@ -37,13 +37,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import { appStore } from '@/store';
-import { SlideData, Lang } from '@/types/app';
+import { SlideDir, Lang } from '@/types/app';
 import Swiper from 'swiper';
-import Slide01 from '@/components/slide/Slide01.vue';
-import Slide02 from '@/components/slide/Slide02.vue';
-import Slide03 from '@/components/slide/Slide03.vue';
-import Slide04 from '@/components/slide/Slide04.vue';
-import Slide05 from '@/components/slide/Slide05.vue';
 import SlideTemplate from '@/components/slide/SlideTemplate.vue';
 
 type State = {
@@ -53,7 +48,7 @@ type State = {
 
 export default Vue.extend({
   name: 'ViewHome',
-  components: { Slide01, Slide02, Slide03, Slide04, Slide05, SlideTemplate },
+  components: { SlideTemplate },
   props: {},
   data(): State {
     return {
@@ -65,7 +60,7 @@ export default Vue.extend({
     classLang(): string {
       return `-${this.lang}`;
     },
-    slidedata(): SlideData {
+    slidedata(): SlideDir[] {
       return appStore.slidedata;
     },
     lang(): string {

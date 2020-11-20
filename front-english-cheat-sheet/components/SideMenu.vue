@@ -12,7 +12,7 @@
         <b-menu-list label="Menu">
           <b-menu-item
             v-for="(p, myindex) in slidedata"
-            :key="`${p.title}`"
+            :key="`${myindex}-${p.title}`"
             :label="p.title"
             :active="myindex === index"
             @click="$emit('select', myindex)"
@@ -27,7 +27,7 @@
 <!------------------------------->
 <script lang="ts">
 import Vue from 'vue';
-import { SlideData } from '@/types/app';
+import { SlideDir } from '@/types/app';
 import { appStore } from '@/store';
 
 export default Vue.extend({
@@ -47,7 +47,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    slidedata(): SlideData {
+    slidedata(): SlideDir[] {
       return appStore.slidedata.map((d) => {
         const data = { ...d };
         if (data.title && this.lang === 'ja') {
