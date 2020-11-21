@@ -5,15 +5,26 @@
       <section
         v-for="(sec, index2) in s.children"
         :key="`${index2}-${sec.title}`"
-        class=""
+        class="sentence-list"
       >
         <SectionTitle :text="sec.title" />
-        <Sentence
-          v-for="(sen, index3) in sec.sentences"
-          :key="`${index3}-${sen.ja}`"
-          :text="sen.ja"
-          :en="sen.en"
-        />
+        <template v-if="isTalk">
+          <!-- 会話 -->
+          <SentenceTalk
+            v-for="(sen, index3) in sec.sentences"
+            :key="`${index3}-${sen.ja}`"
+            :textdata="sen"
+            :class="{ '-right': index3 % 2 === 1 }"
+          />
+        </template>
+        <template v-else>
+          <!-- 一覧 -->
+          <Sentence
+            v-for="(sen, index3) in sec.sentences"
+            :key="`${index3}-${sen.ja}`"
+            :textdata="sen"
+          />
+        </template>
       </section>
     </div>
 
@@ -36,6 +47,23 @@ export default Vue.extend({
       type: Object as PropType<SlideDir>,
     },
   },
+  computed: {
+    isTalk(): boolean {
+      if (this.json && this.json.children.length > 0) {
+        const secchild = this.json.children[0].children;
+        console.log('secchild', secchild);
+        if (secchild && secchild.length > 0) {
+          const sentences = secchild[0].sentences;
+          if (sentences && sentences.length > 0) {
+            if (sentences[0].who) {
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    },
+  },
 });
 </script>
 <!------------------------------->
@@ -48,7 +76,12 @@ export default Vue.extend({
   background-color: $app-color;
 }
 
-section {
+.sentence-list {
   padding: 20px 20px 0;
+  max-width: 360px;
+}
+
+.-right {
+  justify-content: flex-end;
 }
 </style>

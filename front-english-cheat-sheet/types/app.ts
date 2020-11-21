@@ -3,11 +3,13 @@ export type SlideSource = {
   sectionTitle: string;
   ja: string;
   en: string;
+  who?: string;
 };
 
 export type SlideDirLang = {
   ja: string;
   en: string;
+  who: string;
 };
 
 export type SlideDir = {

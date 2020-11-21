@@ -37,59 +37,68 @@ const pagedata: SlideSource[] = [
     sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
+    who: 'タコのすけ',
   },
   {
     pageTitle: '',
     sectionTitle: '',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
+    who: '',
   },
   {
     pageTitle: '',
     sectionTitle: '',
     ja: '週末（しゅうまつ）はどうでしたか？2',
     en: 'How was your weekend?',
+    who: 'タコのすけ',
   },
   {
     pageTitle: '',
     sectionTitle: 'セクションタイトル',
     ja: '今日（きょう）は寒（さむ）いよね',
     en: 'It’s cold today, isn’t it?',
+    who: 'イカ二郎',
   },
   {
     pageTitle: '',
     sectionTitle: '',
     ja: 'それでははじめよう',
     en: 'Shall we get started?',
+    who: 'タコのすけ',
   },
   {
     pageTitle: '',
     sectionTitle: 'セクションタイトル2',
     ja: '***さんからはじめよう',
     en: 'Let’s start with Mr.***.',
+    who: 'イカ二郎',
   },
   {
     pageTitle: '',
     sectionTitle: '',
     ja: '時間（じかん）がなくなってきました',
     en: 'We’re running out of time.',
+    who: 'タコのすけ',
   },
   {
     pageTitle: 'ページタイトル2',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
+    who: 'イカ二郎',
   },
   {
     pageTitle: '',
     sectionTitle: 'ページタイトル2のセクション',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
+    who: 'タコのすけ',
   },
 ];
 
-type Key = 'pageTitle' | 'sectionTitle' | 'ja' | 'en';
-const keys: Key[] = ['pageTitle', 'sectionTitle', 'ja', 'en'];
+type Key = 'pageTitle' | 'sectionTitle' | 'ja' | 'en' | 'who';
+const keys: Key[] = ['pageTitle', 'sectionTitle', 'ja', 'en', 'who'];
 
 function getSheetJson(rows: SlideSource[]) {
   const pages = splitPageData(rows, keys);
@@ -198,23 +207,19 @@ function mergeChildren(items: SlideDir[]) {
 function makeDirObj(data: SlideSource, keys: Key[]): SlideDir | null {
   let ret: SlideDir | null = null;
   let tmp: SlideDir | null = null;
-  let jaen: SlideDirLang = {
-    ja: '',
-    en: '',
-  };
+
   for (let index = 0; index < keys.length; index++) {
     const key = keys[index];
     const str = data[key];
 
-    if (key === 'ja' || key === 'en') {
-      jaen[key] = str.trim();
-      if (tmp && jaen.ja && jaen.en) {
-        tmp.sentences.push(jaen as any);
-        jaen = {
-          ja: '',
-          en: '',
-        };
-      }
+    if (key === 'en' || key === 'who') continue;
+
+    if (tmp && str && key === 'ja') {
+      tmp.sentences.push({
+        ja: data.ja.trim(),
+        en: data.en.trim(),
+        who: data.who?.trim() || '',
+      });
       continue;
     }
     const item: SlideDir = {
