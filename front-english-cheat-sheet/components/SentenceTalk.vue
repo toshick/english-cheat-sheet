@@ -62,6 +62,9 @@ export default Vue.extend({
   font-size: 14px;
   padding-bottom: 10px;
 }
+.sentence-body {
+  max-width: 90%;
+}
 .sentence-icon {
   position: relative;
   background-color: #fff;
@@ -85,10 +88,11 @@ export default Vue.extend({
 }
 h1 {
   display: inline-block;
-  background-color: #ece3c1;
+  // background-color: #ece3c1;
   border-radius: 3px;
   padding: 4px 10px;
   margin-bottom: 0.5em;
   font-size: 10px;
+  color: #666;
 }
 </style>

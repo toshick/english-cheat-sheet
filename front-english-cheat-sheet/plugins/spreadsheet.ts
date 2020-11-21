@@ -35,15 +35,17 @@ const pagedata: SlideSource[] = [
   {
     pageTitle: 'ページタイトル',
     sectionTitle: '会議（かいぎ）をはじめる',
-    ja: 'ごきげんいかが？',
-    en: 'Hi everyone. How’s it going?',
+    ja:
+      'チーム内(ない)のコミュニケーション不足(ぶそく)が、問題(もんだい)になっています。',
+    en: 'The lack of communication among team members is becoming a problem.',
     who: 'タコのすけ',
   },
   {
     pageTitle: '',
     sectionTitle: '',
-    ja: '週末（しゅうまつ）はどうでしたか？',
-    en: 'How was your weekend?',
+    ja:
+      'ちょっと不具合(ふぐあい)があるので、今日中(きょうじゅう)に直(なお)します。',
+    en: "There are some defects, so I'll fix it by the end of the day.",
     who: '',
   },
   {
