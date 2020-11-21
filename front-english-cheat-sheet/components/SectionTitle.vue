@@ -33,5 +33,9 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 1em;
+  color: #fff;
+  border-top: dashed 1px #fff;
+  border-bottom: dashed 1px #fff;
+  padding: 4px 0;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <article class="sentence">
+  <article :class="myClass">
     <div class="sentence-body">
       <p class="sentence-who">{{ talker }}</p>
       <div class="sentence-text">
@@ -26,8 +26,19 @@ export default Vue.extend({
       default: () => {},
       type: Object as PropType<SlideDirLang>,
     },
+    right: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
+    myClass(): any {
+      const ret: any = { sentence: true };
+      if (this.right) {
+        ret['-right'] = true;
+      }
+      return ret;
+    },
     mytext(): string {
       if (!this.textdata) return '';
       return this.textdata.ja.replace(
@@ -61,7 +72,19 @@ export default Vue.extend({
   align-items: flex-end;
   font-size: 14px;
   padding-bottom: 10px;
+  &.-right {
+    justify-content: flex-end;
+    .sentence-text {
+      &::after {
+        @include fukidashiRight(#eee);
+      }
+    }
+    .sentence-who {
+      text-align: right;
+    }
+  }
 }
+
 .sentence-body {
   max-width: 90%;
 }
@@ -78,9 +101,13 @@ export default Vue.extend({
 }
 
 .sentence-text {
+  position: relative;
   background-color: #eee;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 10px;
+  &::after {
+    @include fukidashiLeft(#eee);
+  }
 }
 .sentence-who {
   font-size: 10px;

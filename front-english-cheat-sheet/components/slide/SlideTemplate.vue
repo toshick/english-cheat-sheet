@@ -14,7 +14,7 @@
             v-for="(sen, index3) in sec.sentences"
             :key="`${index3}-${sen.ja}`"
             :textdata="sen"
-            :class="{ '-right': index3 % 2 === 1 }"
+            :right="index3 % 2 === 1"
           />
         </template>
         <template v-else>
@@ -79,9 +79,5 @@ export default Vue.extend({
 .sentence-list {
   padding: 20px 20px 0;
   max-width: 360px;
-}
-
-.-right {
-  justify-content: flex-end;
 }
 </style>

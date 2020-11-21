@@ -34,5 +34,6 @@ export default Vue.extend({
   font-weight: bold;
   padding: 20px 20px 0;
   margin: 0;
+  color: $app-color-dark;
 }
 </style>
