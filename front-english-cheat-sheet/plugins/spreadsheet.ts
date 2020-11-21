@@ -218,7 +218,7 @@ function makeDirObj(data: SlideSource, keys: Key[]): SlideDir | null {
 
     if (tmp && str && key === 'ja') {
       tmp.sentences.push({
-        ja: data.ja.trim(),
+        ja: data.ja.trim().replace(/\(/g, '（').replace(/\)/g, '）'),
         en: data.en.trim(),
         who: data.who?.trim() || '',
       });
