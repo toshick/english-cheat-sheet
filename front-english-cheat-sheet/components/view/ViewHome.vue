@@ -5,8 +5,22 @@
         :lang="lang"
         @open-side-menu="open = true"
         @toggle-lang="toggleLang"
-      />
-      <Body>
+      >
+        <!-- nav -->
+        <nav class="header-nav">
+          <ul v-if="swiper">
+            <li
+              v-for="(p, index) in slidedata"
+              :key="`nav-${index}-${p.title}`"
+              :class="{ '-current': swiper.activeIndex === index }"
+            >
+              <a @click="() => onSelect(index)">{{ p.title }}</a>
+            </li>
+          </ul>
+        </nav>
+      </Header>
+      <Body ref="mybody" class="mybody">
+        <!-- swiper -->
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div
@@ -68,13 +82,15 @@ export default Vue.extend({
     },
   },
   mounted() {
+    const mybody = this.$refs.mybody as Vue;
+    const $mybody = mybody.$el as HTMLDivElement;
+
     this.swiper = new Swiper('.swiper-container', {
-      // on: {
-      //   slideChange(e: Event) {
-      //     const s = e as Swiper;
-      //     console.log('slideChange', s.activeIndex);
-      //   },
-      // },
+      on: {
+        slideChange() {
+          $mybody.scrollTo(0, 0);
+        },
+      },
     });
   },
   methods: {
@@ -95,13 +111,56 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
 
+.mybody {
+  position: relative;
+  overflow: scroll;
+}
+
 .swiper-container {
-  height: 100%;
   width: 100vw;
   background-color: $app-color-dark;
+  margin: 0;
+  border: solid 1px #ff0000 inset;
 }
 .swiper-slide {
-  height: 100vh;
-  overflow: scroll;
+  // height: 100vh;
+  // overflow: scroll;
+}
+.header-nav {
+  position: relative;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // z-index: 2;
+  width: 100vw;
+  height: 30px;
+  overflow: hidden;
+  ul {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgba($app-color-dark, 0.2);
+    height: 100%;
+
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  li {
+    padding: 0 10px;
+    height: 30px;
+    &.-current {
+      a {
+        color: $app-color-dark;
+      }
+    }
+  }
+  a {
+    white-space: nowrap;
+    font-size: 10px;
+    color: #fff;
+  }
+}
+
+.debug-footer {
+  background-color: blue;
 }
 </style>

@@ -30,7 +30,7 @@ footer {
   section {
     position: relative;
     background-color: $app-color-dark;
-    height: 100px;
+    height: 70px;
 
     $h: 20px;
     &::after {

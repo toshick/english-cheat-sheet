@@ -1,8 +1,11 @@
 <template>
   <header class="wf">
-    <a @click="$emit('open-side-menu')"><b-icon icon="menu" /></a>
-    ENGLISH CHEAT SHEET
-    <a class="btn-toggle" @click="$emit('toggle-lang')">{{ lang }}</a>
+    <div class="header-body">
+      <a @click="$emit('open-side-menu')"><b-icon icon="menu" /></a>
+      ENGLISH CHEAT SHEET
+      <a class="btn-toggle" @click="$emit('toggle-lang')">{{ lang }}</a>
+    </div>
+    <slot />
   </header>
 </template>
 <!------------------------------->
@@ -26,7 +29,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
 
-header {
+.header-body {
   position: relative;
   display: flex;
   align-items: center;

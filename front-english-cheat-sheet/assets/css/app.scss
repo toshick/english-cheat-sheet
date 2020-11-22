@@ -33,12 +33,9 @@ a {
 .view {
   position: absolute;
   display: grid;
-  // grid-template-rows: min-content auto min-content;
   grid-template-rows: min-content auto;
-  overflow: hidden;
   padding: 0;
   height: 100%;
-  width: 100%;
 }
 
 /* -------------------- 

@@ -30,7 +30,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
 h1 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 1em;
   color: #fff;
