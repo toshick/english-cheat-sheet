@@ -7,21 +7,23 @@
         @toggle-lang="toggleLang"
       >
         <!-- nav -->
-        <nav class="header-nav">
+        <nav v-if="slidedata" class="header-nav">
           <ul v-if="swiper">
             <li
-              v-for="(p, index) in slidedata"
-              :key="`nav-${index}-${p.title}`"
+              v-for="(item, index) in menuItems"
+              :key="`nav-${index}-${item}`"
               :class="{ '-current': swiper.activeIndex === index }"
             >
-              <a @click="() => onSelect(index)">{{ p.title }}</a>
+              <a @click="() => onSelect(index)" v-html="item" />
             </li>
           </ul>
         </nav>
       </Header>
       <Body ref="mybody" class="mybody">
+        <!-- nodata -->
+        <div v-if="slidedata.length === 0" class="nodata wf">NO DATA</div>
         <!-- swiper -->
-        <div class="swiper-container">
+        <div v-else class="swiper-container">
           <div class="swiper-wrapper">
             <div
               v-for="(p, index) in slidedata"
@@ -80,6 +82,14 @@ export default Vue.extend({
     lang(): string {
       return appStore.lang;
     },
+    menuItems(): string[] {
+      return appStore.slidedata.map((d: SlideDir) => {
+        return d.title.replace(
+          /(（.+?）)/g,
+          '<span class="furigana">$1</span>',
+        );
+      });
+    },
   },
   mounted() {
     const mybody = this.$refs.mybody as Vue;
@@ -110,17 +120,26 @@ export default Vue.extend({
 <!------------------------------->
 <style scoped lang="scss">
 @import '~/assets/css/_for-component';
+@import '~/assets/css/_mixins.scss';
 
 .mybody {
   position: relative;
   overflow: scroll;
+}
+.nodata {
+  font-size: 55px;
+  white-space: nowrap;
+  @include center;
+  top: 20%;
+  width: 90%;
+  text-align: center;
+  color: #fff;
 }
 
 .swiper-container {
   width: 100vw;
   background-color: $app-color-dark;
   margin: 0;
-  border: solid 1px #ff0000 inset;
 }
 .swiper-slide {
   // height: 100vh;
@@ -128,10 +147,6 @@ export default Vue.extend({
 }
 .header-nav {
   position: relative;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // z-index: 2;
   width: 100vw;
   height: 30px;
   overflow: hidden;

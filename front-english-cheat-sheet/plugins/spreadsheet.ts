@@ -10,12 +10,7 @@ export default function ({ $config }: { $config: any }) {
       JSON.stringify($config.sheetJsonStr),
     ).replace(/\n/g, '\\n');
     sheetJson = JSON.parse(sheetJsonStr);
-
-    console.log('$config.sheetJsonStr', sheetJsonStr);
-  } else {
-    console.log('$config.sheetJsonStrなし');
-  }
-  if (!sheetJson) {
+  } else if (!sheetJson || process.env.NODE_ENV === 'development') {
     sheetJson = pagedata;
   }
 
@@ -33,7 +28,7 @@ export default function ({ $config }: { $config: any }) {
 
 const pagedata: SlideSource[] = [
   {
-    pageTitle: 'ページタイトル',
+    pageTitle: 'ページタイトル（タイトル）',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja:
       'チーム内(ない)のコミュニケーション不足(ぶそく)が、問題(もんだい)になっています。',
