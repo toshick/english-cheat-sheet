@@ -104,7 +104,7 @@ export default Vue.extend({
   position: relative;
   background-color: #eee;
   border-radius: 8px;
-  padding: 10px;
+  padding: 10px 20px;
   &::after {
     @include fukidashiLeft(#eee);
   }
@@ -117,7 +117,7 @@ h1 {
   display: inline-block;
   // background-color: #ece3c1;
   border-radius: 3px;
-  padding: 4px 10px;
+  padding: 4px 0px;
   margin-bottom: 0.5em;
   font-size: 10px;
   color: #666;

@@ -51,7 +51,6 @@ export default Vue.extend({
     isTalk(): boolean {
       if (this.json && this.json.children.length > 0) {
         const secchild = this.json.children[0].children;
-        console.log('secchild', secchild);
         if (secchild && secchild.length > 0) {
           const sentences = secchild[0].sentences;
           if (sentences && sentences.length > 0) {

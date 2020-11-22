@@ -7,12 +7,12 @@
         @toggle-lang="toggleLang"
       >
         <!-- nav -->
-        <nav v-if="slidedata" class="header-nav">
-          <ul v-if="swiper">
+        <nav class="header-nav">
+          <ul ref="menubody">
             <li
               v-for="(item, index) in menuItems"
               :key="`nav-${index}-${item}`"
-              :class="{ '-current': swiper.activeIndex === index }"
+              :class="{ '-current': swiper && swiper.activeIndex === index }"
             >
               <a @click="() => onSelect(index)" v-html="item" />
             </li>
@@ -60,6 +60,7 @@ import SlideTemplate from '@/components/slide/SlideTemplate.vue';
 type State = {
   swiper: Swiper | null;
   open: boolean;
+  menuItemsPointX: number[];
 };
 
 export default Vue.extend({
@@ -70,6 +71,7 @@ export default Vue.extend({
     return {
       swiper: null,
       open: false,
+      menuItemsPointX: [],
     };
   },
   computed: {
@@ -90,20 +92,52 @@ export default Vue.extend({
         );
       });
     },
+    menubody(): HTMLDivElement | null {
+      if (!this.$refs.menubody) return null;
+      const menubody = this.$refs.menubody as Vue;
+      const $menubody = menubody.$el as HTMLDivElement;
+      return $menubody;
+    },
   },
   mounted() {
+    const self = this;
     const mybody = this.$refs.mybody as Vue;
     const $mybody = mybody.$el as HTMLDivElement;
-
     this.swiper = new Swiper('.swiper-container', {
       on: {
+        init() {
+          self.$nextTick(() => {
+            self.setMenuElements();
+          });
+        },
         slideChange() {
           $mybody.scrollTo(0, 0);
+
+          const menubody = self.$refs.menubody as HTMLDivElement;
+          if (menubody && self.swiper) {
+            const x = self.menuItemsPointX[self.swiper.activeIndex];
+            menubody.scrollTo({
+              top: 0,
+              left: x,
+              behavior: 'smooth',
+            });
+          }
         },
       },
     });
   },
   methods: {
+    setMenuElements() {
+      const points = [];
+      const menubody = this.$refs.menubody as HTMLDivElement;
+      const lis = menubody.querySelectorAll('li');
+      for (let index = 0; index < lis.length; index++) {
+        const element = lis[index];
+        const rect = element.getBoundingClientRect();
+        points.push(rect.left);
+      }
+      this.menuItemsPointX = points;
+    },
     onSelect(index: number) {
       this.swiper?.slideTo(index);
       this.open = false;
@@ -151,12 +185,10 @@ $headerHeight: 40px;
   width: 100vw;
   height: $headerHeight;
   overflow: hidden;
+  border-bottom: solid 1px rgba($app-color-dark, 0.2);
   ul {
     display: flex;
     align-items: center;
-    border-bottom: solid 1px rgba($app-color-dark, 0.2);
-    height: 100%;
-
     overflow: scroll;
     scrollbar-width: none;
   }
