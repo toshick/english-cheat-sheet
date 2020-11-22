@@ -145,10 +145,11 @@ export default Vue.extend({
   // height: 100vh;
   // overflow: scroll;
 }
+$headerHeight: 40px;
 .header-nav {
   position: relative;
   width: 100vw;
-  height: 30px;
+  height: $headerHeight;
   overflow: hidden;
   ul {
     display: flex;
@@ -160,8 +161,10 @@ export default Vue.extend({
     scrollbar-width: none;
   }
   li {
+    display: flex;
+    align-items: center;
     padding: 0 10px;
-    height: 30px;
+    height: $headerHeight;
     &.-current {
       a {
         color: $app-color-dark;

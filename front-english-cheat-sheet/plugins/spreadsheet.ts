@@ -10,7 +10,7 @@ export default function ({ $config }: { $config: any }) {
       JSON.stringify($config.sheetJsonStr),
     ).replace(/\n/g, '\\n');
     sheetJson = JSON.parse(sheetJsonStr);
-  } else if (!sheetJson || process.env.NODE_ENV === 'development') {
+  } else if (process.env.NODE_ENV === 'development') {
     sheetJson = pagedata;
   }
 
