@@ -8,17 +8,38 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'english-cheat-sheet',
-    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: '' }],
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
         href: 'https://unpkg.com/swiper/swiper-bundle.min.css',
       },
-      // {
-      //   rel: 'stylesheet',
-      //   href: 'https://fonts.googleapis.com/earlyaccess/nicomoji.css',
-      // },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'apple-touch-icon',
+        href: '/ios/AppIcon.appiconset/iphone_app60x60@2x.png',
+        sizes: '72x72',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/ios/AppIcon.appiconset/iphone_app60x60@2x.png',
+        sizes: '114x114',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/ios/AppIcon.appiconset/iphone_app60x60@2x.png',
+        sizes: '120x120',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/ios/AppIcon.appiconset/iphone_app60x60@2x.png',
+        sizes: '144x144',
+      },
     ],
   },
 

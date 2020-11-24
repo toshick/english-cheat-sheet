@@ -14,9 +14,13 @@ export default function ({ $config }: { $config: any }) {
     sheetJson = pagedata;
   }
 
+
+  
   // GASによる加工なしの場合jsで加工する
   if (Array.isArray(sheetJson) && sheetJson[0].pageTitle) {
-    sheetJson = getSheetJson(sheetJson);
+    sheetJson = getSheetJson(sheetJson, (str: string) => {
+      return str.trim().replace(/\(/g, '（').replace(/\)/g, '）');
+    });
   }
 
   // console.log('sheetJson', JSON.stringify(sheetJson));
@@ -136,11 +140,14 @@ const pagedata: SlideSource[] = [
   },
 ];
 
-type Key = 'pageTitle' | 'sectionTitle' | 'ja' | 'en' | 'who';
-const keys: Key[] = ['pageTitle', 'sectionTitle', 'ja', 'en', 'who'];
+// type Key = 'pageTitle' | 'sectionTitle' | 'ja' | 'en' | 'who';
+// const keys: string[] = ['pageTitle', 'sectionTitle', 'ja', 'en', 'who'];
 
-function getSheetJson(rows: SlideSource[]) {
-  const pages = splitPageData(rows, keys);
+function getSheetJson(
+  rows: SlideSource[],
+  storeCallback?: (str: string) => void,
+) {
+  const pages = splitPageData(rows, storeCallback);
 
   // console.log('pages', JSON.stringify(pages));
 
@@ -155,11 +162,14 @@ function getSheetJson(rows: SlideSource[]) {
 
 // タイトルブロックを区別する
 // タイトルが存在する場合配列を別にする
-function splitPageData(rows: SlideSource[], keys: Key[]): SlideDir[][] {
+function splitPageData(
+  rows: SlideSource[],
+  storeCallback?: (str: string) => void,
+): SlideDir[][] {
   const ret: SlideDir[][] = [];
   let tmp: SlideDir[] = [];
   rows.forEach(function (row) {
-    const obj = makeDirObj(row, keys);
+    const obj = makeDirObj(row, storeCallback);
     if (!obj) return;
     if (obj.title) {
       if (tmp.length > 0) ret.push(tmp);
@@ -243,23 +253,28 @@ function mergeChildren(items: SlideDir[]) {
 }
 
 // ディレクトリにchildrenとtitleを配置したオブジェクトを生成
-function makeDirObj(data: SlideSource, keys: Key[]): SlideDir | null {
+function makeDirObj(
+  data: SlideSource,
+  storeCallback?: (str: string) => void,
+): SlideDir | null {
   let ret: SlideDir | null = null;
   let tmp: SlideDir | null = null;
+  type Key = keyof SlideSource;
 
-  for (let index = 0; index < keys.length; index++) {
-    const key = keys[index];
-    const str = data[key];
+  // for (let index = 0; index < keys.length; index++) {
+  for (const key of Object.keys(data)) {
+    const str = data[key as Key];
+    const isTitle = key.includes('Title');
 
-    if (key === 'en' || key === 'who') continue;
-
-    if (tmp && str && key === 'ja') {
-      tmp.sentences.push({
-        ja: data.ja.trim().replace(/\(/g, '（').replace(/\)/g, '）'),
-        en: data.en.trim(),
-        who: data.who?.trim() || '',
-      });
-      continue;
+    if (tmp && str && !isTitle) {
+      const rest: any = {};
+      for (const k of Object.keys(data)) {
+        if (k.includes('Title')) continue;
+        const val = data[k as Key] || '';
+        rest[k] = storeCallback ? storeCallback(val) : val;
+      }
+      tmp.sentences.push(rest);
+      break;
     }
     const item: SlideDir = {
       title: str || '',

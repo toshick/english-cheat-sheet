@@ -47,7 +47,7 @@ h1 {
   border-radius: 3px;
   padding: 4px 10px;
   margin-bottom: 0.5em;
-  font-size: 10px;
+  font-size: 12px;
 }
 .sentence {
   font-size: 14px;

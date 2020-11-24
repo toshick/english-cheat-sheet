@@ -179,13 +179,16 @@ export default Vue.extend({
   // height: 100vh;
   // overflow: scroll;
 }
-$headerHeight: 40px;
+$headerHeight: 50px;
 .header-nav {
   position: relative;
   width: 100vw;
   height: $headerHeight;
   overflow: hidden;
   border-bottom: solid 1px rgba($app-color-dark, 0.2);
+  &::-webkit-scrollbar {
+    display: none;
+  }
   ul {
     display: flex;
     align-items: center;
@@ -205,7 +208,7 @@ $headerHeight: 40px;
   }
   a {
     white-space: nowrap;
-    font-size: 10px;
+    font-size: 12px;
     color: #fff;
   }
 }

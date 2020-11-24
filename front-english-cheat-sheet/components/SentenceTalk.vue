@@ -119,7 +119,7 @@ h1 {
   border-radius: 3px;
   padding: 4px 0px;
   margin-bottom: 0.5em;
-  font-size: 10px;
+  font-size: 12px;
   color: #666;
 }
 </style>
