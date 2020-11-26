@@ -194,22 +194,27 @@ $headerHeight: 50px;
     align-items: center;
     overflow: scroll;
     scrollbar-width: none;
+    scroll-behavior: smooth;
+    background-color: #ccbe87;
   }
   li {
     display: flex;
     align-items: center;
     padding: 0 10px;
     height: $headerHeight;
+    text-align: center;
     &.-current {
       a {
+        position: relative;
         color: $app-color-dark;
       }
     }
   }
   a {
-    white-space: nowrap;
+    max-width: 140px;
+    width: max-content;
     font-size: 12px;
-    color: #fff;
+    color: #fff5cd;
   }
 }
 

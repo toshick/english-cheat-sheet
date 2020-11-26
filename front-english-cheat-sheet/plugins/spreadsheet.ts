@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { SlideDir, SlideSource, SlideDirLang } from '@/types/app';
 import { appStore } from '@/store';
 
@@ -14,8 +13,6 @@ export default function ({ $config }: { $config: any }) {
     sheetJson = pagedata;
   }
 
-
-  
   // GASによる加工なしの場合jsで加工する
   if (Array.isArray(sheetJson) && sheetJson[0].pageTitle) {
     sheetJson = getSheetJson(sheetJson, (str: string) => {
@@ -32,7 +29,7 @@ export default function ({ $config }: { $config: any }) {
 
 const pagedata: SlideSource[] = [
   {
-    pageTitle: 'ページタイトル（タイトル）',
+    pageTitle: '会話してみる',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja:
       'チーム内(ない)のコミュニケーション不足(ぶそく)が、問題(もんだい)になっています。',
@@ -83,7 +80,7 @@ const pagedata: SlideSource[] = [
     who: 'タコのすけ',
   },
   {
-    pageTitle: 'ページタイトル2',
+    pageTitle: '会議を進行させる',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
@@ -97,7 +94,7 @@ const pagedata: SlideSource[] = [
     who: 'タコのすけ',
   },
   {
-    pageTitle: 'ページタイトル3',
+    pageTitle: 'ページタイトル3ページタイトルページタイトル',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
@@ -111,7 +108,7 @@ const pagedata: SlideSource[] = [
     who: 'タコのすけ',
   },
   {
-    pageTitle: 'ページタイトル4',
+    pageTitle: 'ページタイトル4ページタイトルページタイトル',
     sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',

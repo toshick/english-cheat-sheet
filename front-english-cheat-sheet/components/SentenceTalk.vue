@@ -105,6 +105,7 @@ export default Vue.extend({
   background-color: #eee;
   border-radius: 8px;
   padding: 10px 20px;
+  box-shadow: 0 2px 4px 2px rgba(#333, 0.1);
   &::after {
     @include fukidashiLeft(#eee);
   }
