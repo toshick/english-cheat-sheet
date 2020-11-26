@@ -34,7 +34,7 @@ const pagedata: SlideSource[] = [
     ja:
       'チーム内(ない)のコミュニケーション不足(ぶそく)が、問題(もんだい)になっています。',
     en: 'The lack of communication among team members is becoming a problem.',
-    who: 'タコのすけ',
+    who: '',
   },
   {
     pageTitle: '',

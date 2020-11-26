@@ -43,11 +43,12 @@ export default Vue.extend({
 @import '~/assets/css/_for-component';
 h1 {
   display: inline-block;
-  background-color: #ece3c1;
+  // background-color: #ece3c1;
   border-radius: 3px;
-  padding: 4px 10px;
+  padding: 4px 10px 0px 0;
   margin-bottom: 0.5em;
   font-size: 12px;
+  color: #fff;
 }
 .sentence {
   font-size: 14px;
