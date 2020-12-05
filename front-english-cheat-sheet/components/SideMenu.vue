@@ -48,13 +48,15 @@ export default Vue.extend({
   },
   computed: {
     slidedata(): SlideDir[] {
-      return appStore.slidedata.map((d) => {
-        const data = { ...d };
-        if (data.title && this.lang === 'ja') {
-          data.title = data.title.replace(/(（.+?）)/g, '');
-        }
-        return data;
-      });
+      console.log('appStore.slidedata', appStore.slidedata.length);
+      return [];
+      // return appStore.slidedata.map((d) => {
+      //   const data = { ...d };
+      //   if (data.title && this.lang === 'ja') {
+      //     data.title = data.title.replace(/(（.+?）)/g, '');
+      //   }
+      //   return data;
+      // });
     },
   },
 });

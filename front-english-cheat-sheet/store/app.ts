@@ -1,17 +1,20 @@
 import Vue from 'vue';
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
-import { SlideDir, Lang } from '@/types/app';
+import { SpreadSheetDir } from 'spread-sheet-to-nested-json';
+import { Lang } from '@/types/app';
 
 @Module({ name: 'app', stateFactory: true, namespaced: true })
 export default class MyClass extends VuexModule {
-  slidedata: SlideDir[] = [];
+  slidedata: SpreadSheetDir[] = [];
   lang: Lang = 'ja';
 
   // ----------------------
   // Mutation
   // ----------------------
   @Mutation
-  SET_PAGEJSON(data: SlideDir[]) {
+  SET_PAGEJSON(data: SpreadSheetDir[]) {
+    console.log('セット', data.length);
+
     this.slidedata = data;
   }
 

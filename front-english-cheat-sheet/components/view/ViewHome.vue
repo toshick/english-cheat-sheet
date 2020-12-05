@@ -86,6 +86,7 @@ export default Vue.extend({
     },
     menuItems(): string[] {
       return appStore.slidedata.map((d: SlideDir) => {
+        console.log('d', JSON.stringify(d));
         return d.title.replace(
           /(（.+?）)/g,
           '<span class="furigana">$1</span>',
