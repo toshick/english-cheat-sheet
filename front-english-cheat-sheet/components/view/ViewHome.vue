@@ -53,7 +53,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import { appStore } from '@/store';
-import { SlideDir, Lang } from '@/types/app';
+import { Lang } from '@/types/app';
+import { SpreadSheetDir } from 'spread-sheet-to-nested-json';
 import Swiper from 'swiper';
 import SlideTemplate from '@/components/slide/SlideTemplate.vue';
 
@@ -78,14 +79,14 @@ export default Vue.extend({
     classLang(): string {
       return `-${this.lang}`;
     },
-    slidedata(): SlideDir[] {
+    slidedata(): SpreadSheetDir[] {
       return appStore.slidedata;
     },
     lang(): string {
       return appStore.lang;
     },
     menuItems(): string[] {
-      return appStore.slidedata.map((d: SlideDir) => {
+      return appStore.slidedata.map((d: SpreadSheetDir) => {
         return d.title.replace(
           /(（.+?）)/g,
           '<span class="furigana">$1</span>',

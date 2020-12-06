@@ -27,7 +27,8 @@
 <!------------------------------->
 <script lang="ts">
 import Vue from 'vue';
-import { SlideDir } from '@/types/app';
+import { SpreadSheetDir } from 'spread-sheet-to-nested-json';
+
 import { appStore } from '@/store';
 
 export default Vue.extend({
@@ -47,7 +48,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    slidedata(): SlideDir[] {
+    slidedata(): SpreadSheetDir[] {
       return appStore.slidedata.map((d) => {
         const data = { ...d };
         if (data.title && this.lang === 'ja') {
