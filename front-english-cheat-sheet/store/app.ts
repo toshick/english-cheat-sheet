@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { SpreadSheetDir } from 'spread-sheet-to-nested-json';
 import { Lang } from '@/types/app';
@@ -13,8 +12,6 @@ export default class MyClass extends VuexModule {
   // ----------------------
   @Mutation
   SET_PAGEJSON(data: SpreadSheetDir[]) {
-    console.log('セット', data.length);
-
     this.slidedata = data;
   }
 

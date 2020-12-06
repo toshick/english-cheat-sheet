@@ -14,20 +14,15 @@ export default function ({ $config }: { $config: any }) {
   }
 
   // GASによる加工なしの場合jsで加工する
-  if (Array.isArray(sheetJson) && sheetJson[0].pageblock) {
-    // sheetJson = getNestedJson(sheetJson, (str: string) => {
-    //   return str.trim().replace(/\(/g, '（').replace(/\)/g, '）');
-    // });
-
+  if (Array.isArray(sheetJson) && sheetJson[0].pageTitle) {
     sheetJson = getNestedJson({
       rows: sheetJson,
-      onStore: (str: string) => {
+      rowKey: 'Title',
+      onStore: (_key: string, str: string) => {
         return str.trim().replace(/\(/g, '（').replace(/\)/g, '）');
       },
     });
   }
-
-  console.log('sheetJson', sheetJson[1].length, JSON.stringify(sheetJson[1]));
 
   if (sheetJson) {
     appStore.SET_PAGEJSON(sheetJson);
@@ -36,108 +31,108 @@ export default function ({ $config }: { $config: any }) {
 
 const pagedata: SpreadSheetSource[] = [
   {
-    pageblock: '会話してみる',
-    sectionblock: '会議（かいぎ）をはじめる',
+    pageTitle: '会話してみる',
+    sectionTitle: '会議（かいぎ）をはじめる',
     ja:
       'チーム内(ない)のコミュニケーション不足(ぶそく)が、問題(もんだい)になっています。',
     en: 'The lack of communication among team members is becoming a problem.',
-    who: '',
+    who: 'にゃんごろう',
   },
   {
-    pageblock: '',
-    sectionblock: '',
+    pageTitle: '',
+    sectionTitle: '',
     ja:
       'ちょっと不具合(ふぐあい)があるので、今日中(きょうじゅう)に直(なお)します。',
     en: "There are some defects, so I'll fix it by the end of the day.",
     who: '',
   },
   {
-    pageblock: '',
-    sectionblock: '',
+    pageTitle: '',
+    sectionTitle: '',
     ja: '週末（しゅうまつ）はどうでしたか？2',
     en: 'How was your weekend?',
     who: 'タコのすけ',
   },
   {
-    pageblock: '',
-    sectionblock: 'セクションタイトル',
+    pageTitle: '',
+    sectionTitle: 'セクションタイトル',
     ja: '今日（きょう）は寒（さむ）いよね',
     en: 'It’s cold today, isn’t it?',
     who: 'イカ二郎',
   },
   {
-    pageblock: '',
-    sectionblock: '',
+    pageTitle: '',
+    sectionTitle: '',
     ja: 'それでははじめよう',
     en: 'Shall we get started?',
     who: 'タコのすけ',
   },
   {
-    pageblock: '',
-    sectionblock: 'セクションタイトル2',
+    pageTitle: '',
+    sectionTitle: 'セクションタイトル2',
     ja: '***さんからはじめよう',
     en: 'Let’s start with Mr.***.',
     who: 'イカ二郎',
   },
   {
-    pageblock: '',
-    sectionblock: '',
+    pageTitle: '',
+    sectionTitle: '',
     ja: '時間（じかん）がなくなってきました',
     en: 'We’re running out of time.',
     who: 'タコのすけ',
   },
   {
-    pageblock: '会議を進行させる',
-    sectionblock: '会議（かいぎ）をはじめる',
+    pageTitle: '会議を進行させる',
+    sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
-    who: 'イカ二郎',
+    who: '',
   },
   {
-    pageblock: '',
-    sectionblock: 'ページタイトル2のセクション',
+    pageTitle: '',
+    sectionTitle: 'ページタイトル2のセクション',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
     who: 'タコのすけ',
   },
   {
-    pageblock: 'ページタイトル3ページタイトルページタイトル',
-    sectionblock: '会議（かいぎ）をはじめる',
+    pageTitle: 'ページタイトル3ページタイトルページタイトル',
+    sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
     who: 'イカ二郎',
   },
   {
-    pageblock: '',
-    sectionblock: 'ページタイトル2のセクション',
+    pageTitle: '',
+    sectionTitle: 'ページタイトル2のセクション',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
     who: 'タコのすけ',
   },
   {
-    pageblock: 'ページタイトル4ページタイトルページタイトル',
-    sectionblock: '会議（かいぎ）をはじめる',
+    pageTitle: 'ページタイトル4ページタイトルページタイトル',
+    sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
-    who: 'イカ二郎',
+    who: '',
   },
   {
-    pageblock: '',
-    sectionblock: 'ページタイトル2のセクション',
+    pageTitle: '',
+    sectionTitle: 'ページタイトル2のセクション',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
     who: 'タコのすけ',
   },
   {
-    pageblock: 'ページタイトル5',
-    sectionblock: '会議（かいぎ）をはじめる',
+    pageTitle: 'ページタイトル5',
+    sectionTitle: '会議（かいぎ）をはじめる',
     ja: 'ごきげんいかが？',
     en: 'Hi everyone. How’s it going?',
     who: 'イカ二郎',
   },
   {
-    pageblock: '',
-    sectionblock: 'ページタイトル2のセクション',
+    pageTitle: '',
+    sectionTitle: 'ページタイトル2のセクション',
     ja: '週末（しゅうまつ）はどうでしたか？',
     en: 'How was your weekend?',
     who: 'タコのすけ',

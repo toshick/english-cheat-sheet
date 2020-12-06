@@ -12,13 +12,13 @@
 <!------------------------------->
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { SlideDirLang } from '@/types/app';
+import { SpreadSheetCellData } from 'spread-sheet-to-nested-json';
 export default Vue.extend({
   name: 'Sentence',
   props: {
     textdata: {
       default: () => {},
-      type: Object as PropType<SlideDirLang>,
+      type: Object as PropType<SpreadSheetCellData>,
     },
   },
   computed: {
